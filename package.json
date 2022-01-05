@@ -30,7 +30,7 @@
   },
   "scripts": {
     "start": "npm start",
-    "build": "npm build",
+    "build": "npm install",
     "test": "npm test",
     "eject": "npm eject"
   },
