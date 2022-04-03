@@ -25,8 +25,8 @@ const LeftsideDoctor = () => {
         </li>
 
         <li style={{ textDecoration: "none" }}>
-          <Link to="">
-            <Option Value="Chat with Patients" />
+          <Link to="/doctor/chats">
+            <Option Value="Chat with Doctors" />
           </Link>
         </li>
         

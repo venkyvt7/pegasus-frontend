@@ -16,6 +16,8 @@ import PhoneNumber from "./components/PhoneNumber";
 import PersonalDetails from "./Doctor/PersonalDetails";
 import SearchDoctor from "./Patient/SearchDoctor";
 import PerviousAppointments from "./Patient/PerviousAppointments";
+import Chat from "./Patient/Chat";
+import Room from "./Patient/VideoCall";
 import Spinner from "react-bootstrap/Spinner";
 import Selectdate from "./Patient/Selectdate";
 import BookingSlots from "./Doctor/BookingSlots";
@@ -25,6 +27,8 @@ import AppointmentStatus from "./Patient/AppointmentStatus";
 import Pfeedback from './Patient/Feedback';
 import FeedbackDetails from './Doctor/FeedbackDetails';
 
+
+import { Button, TextField, unsupportedProp } from "@material-ui/core";
 function App() {
 	const [token, setToken] = useState(window.localStorage.getItem("token"));
 	const [googleId, setGoogleId] = useState(
@@ -78,6 +82,7 @@ function App() {
 		<Router>
 			<AuthContext.Provider value={{ token, setToken, googleId, setGoogleId }}>
 				<Switch>
+				<Route path="/room/:roomID" component={Room} />
 					<Route exact path="/" component={Home} />
 					<Route exact path="/doctorlogin" component={DoctorLogin} />
 					<Route exact path="/doctor" component={DoctorDashboard} />
@@ -91,8 +96,18 @@ function App() {
 					/>
 					<Route
 						exact
+						path="/patient/chats"
+						component={Chat}
+					/>
+					<Route
+						exact
 						path="/doctor/perosnaldetails"
 						component={PersonalDetails}
+					/>
+					<Route
+						exact
+						path="/doctor/chats"
+						component={Chat}
 					/>
 					<Route
 						exact
@@ -100,7 +115,7 @@ function App() {
 						component={DocAppointments}
 					/>
 					<Route exact path="/doctor/feedback/:id" component={FeedbackDetails} />
-
+				
 					<Route exact path="/patient/selectdate" component={Selectdate} />
 					<Route exact path="/patient/book-slot" component={BookingSlots} />
 					<Route exact path="/patient/payment" component={Payment} />

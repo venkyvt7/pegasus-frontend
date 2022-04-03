@@ -23,10 +23,10 @@ const LoginForm = () => {
 			setStatus(res.status);
 
 			const token = res.data.token;
-
+             
 			if (res.status === 200) {
 				window.localStorage.setItem("token", token);
-
+				window.localStorage.setItem("user", JSON.stringify(res.data.doctor));
 				// Remove the googleId if it exisits in the local storage
 				window.localStorage.removeItem("googleId");
 				setGoogleId(null);

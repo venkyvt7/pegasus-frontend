@@ -28,7 +28,11 @@ const LeftsidePatient = () => {
             <Option Value="Previous Appointments" />
           </Link>
         </li>
-
+        <li>
+          <Link to="/patient/chats">
+            <Option Value="Chat with Doctors" />
+          </Link>
+        </li>
        
       </ul>
     </div>
