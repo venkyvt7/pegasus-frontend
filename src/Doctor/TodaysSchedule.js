@@ -39,7 +39,10 @@ const TodaysSchedule = () => {
             <th scope="row">{appointment.date}</th>
             <th scope="row">{appointment.slotTime}</th>
             <th scope="row">{appointment.patientName}</th>
-            <th scope="row"><a href={appointment.googleMeetLink} target="_blank">Join Meet</a></th>
+            <th scope="row"> <a href={"http://localhost:3000/room/"+appointment.googleMeetLink} target="_blank">Join Meet Online
+                                      
+                                        
+                                      </a></th>
           </tr>
         ))}
       </tbody>

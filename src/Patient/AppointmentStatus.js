@@ -95,7 +95,10 @@ const AppointmentStatus = () => {
                                         <th scope="row">{Appointment.date}</th>
                                         <th scope="row">{Appointment.slotTime}</th>
                                         <th scope="row">{Appointment.doctorName}</th>
-                                        <th scope="row"> <a href={"http://localhost:3000/videocall"} target="_blank">Join Meet</a></th>
+                                        <th scope="row"> <a href={"http://localhost:3000/room/"+Appointment.googleMeetLink} target="_blank">Join Meet Online
+                                      
+                                        
+                                        </a></th>
                                     </tr>
                                 ))}
                             </tbody>
