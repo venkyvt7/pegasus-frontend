@@ -12,8 +12,9 @@ const Selectdate = (props) => {
   const onChange = (date) => {
     setDate(date);
   };
-  var pervious = new Date();
-  pervious.setDate(pervious.getDate() - 1);
+  var startDate = new Date();
+  var endDate = new Date();
+  endDate.setDate(date.getDate() + 30);
   return (
     <div className="bg-dark" style={{ height: "100vh" }}>
       <Navbar />
@@ -38,18 +39,14 @@ const Selectdate = (props) => {
               <div>
                 <Calendar
                   tileDisabled={({ date }) =>
-                    date.getDay() === 0 || date < pervious
+                    date.getDay() === 0 || date <= startDate || date > endDate
                   }
                   onChange={onChange}
                   value={date}
                 />
                 {console.log(date)}
-                <p class="text-center">
-                  {date.getFullYear().toString() +
-                    "-" +
-                    (date.getMonth() + 1).toString() +
-                    "-" +
-                    date.getDate().toString()}
+                <p class="text-center" style={{color: "white", marginTop: "4px"}}>
+                  {`${date.getDate().toString()}-${date.getMonth() < 9 ? '0' : ''}${(date.getMonth() + 1).toString()}-${date.getFullYear().toString()}`}
                 </p>
               </div>
             </div>
