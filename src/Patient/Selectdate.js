@@ -14,6 +14,7 @@ const Selectdate = (props) => {
   };
   var startDate = new Date();
   var endDate = new Date();
+  startDate.setDate(date.getDate() -1);
   endDate.setDate(date.getDate() + 30);
   return (
     <div className="bg-dark" style={{ height: "100vh" }}>
@@ -39,7 +40,7 @@ const Selectdate = (props) => {
               <div>
                 <Calendar
                   tileDisabled={({ date }) =>
-                    date.getDay() === 0 || date <= startDate || date > endDate
+                    date.getDay() === 0 || date <startDate || date > endDate
                   }
                   onChange={onChange}
                   value={date}
