@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 import { Button, TextField, unsupportedProp } from "@material-ui/core";
 import io from "socket.io-client";
-// const socket=io.conect("http://localhost:4000");
+// const socket=io.conect("http://localhost:4002");
 
 const Chat = () => {
   const [Appointments, setAppointments] = useState([]);
@@ -23,7 +23,7 @@ const Chat = () => {
 
   useEffect(() => {
     socketRef.current = io.connect(
-      "https://mlhmenatalchatbackend.herokuapp.com/"
+      "https://pdp-chat.herokuapp.com/"
     );
     socketRef.current.on("message", ({ name, message }) => {
       setChat([...chat, { name, message }]);

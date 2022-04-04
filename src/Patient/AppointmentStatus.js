@@ -95,7 +95,7 @@ const AppointmentStatus = () => {
                                         <th scope="row">{Appointment.date}</th>
                                         <th scope="row">{Appointment.slotTime}</th>
                                         <th scope="row">{Appointment.doctorName}</th>
-                                        <th scope="row"> <a href={"https://pegasus-frontend-beta.vercel.app/"+Appointment.googleMeetLink} target="_blank">Join Meet Online
+                                        <th scope="row"> <a href={"https://localhost:3000/room/"+Appointment.googleMeetLink} target="_blank">Join Meet Online
                                       
                                         
                                         </a></th>
