@@ -1,12 +1,12 @@
 import React from 'react';
 import Footer from '../Basic/Footer';
 import Navbar from '../Basic/Navbar';
-import LoginForm from '../Doctorlogin/LoginForm';
+import LoginForm from '../DoctorSignUp/SignUpForm';
 
-const DoctorLogin = () => {
+const DoctorSignUp = () => {
     return (
         <div >
-            <div style={{ height: "71vh" }}>
+            <div style={{ height: "70vh" }}>
                 <Navbar />
                 <LoginForm />
             </div>
@@ -18,4 +18,4 @@ const DoctorLogin = () => {
     )
 }
 
-export default DoctorLogin;
+export default DoctorSignUp;

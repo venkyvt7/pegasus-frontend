@@ -3,53 +3,10 @@ import { Link, useHistory } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import logo from "../image/navbaricon1.png";
 import { AuthContext } from "../Auth/AuthContext";
-import axios from "axios";
-// import GoogleLogin from "react-google-login";
-// import axios from "axios";
 
 const Navbar = () => {
   const { token, setToken, setGoogleId } = useContext(AuthContext);
   const history = useHistory();
-
-  async function loginWithGoogle(e) {
-    try {
-      await window.gapi.auth2.getAuthInstance().signIn();
-      const auth2 = await window.gapi.auth2.getAuthInstance();
-      if (auth2.isSignedIn.get()) {
-        console.log("[Google] Signed in successfully!");
-        var profile = auth2.currentUser.get();
-        console.log(profile);
-        window.localStorage.setItem("token", profile.getAuthResponse().id_token);
-        window.localStorage.setItem("googleId", profile.getId());
-
-        const serverRes = await axios.post(
-          `${process.env.REACT_APP_SERVER_URL}/patients/google-login/`,
-          {
-            tokenId: profile.getAuthResponse().id_token,
-          }
-        );
-
-        if (serverRes) {
-          console.log(serverRes.data.phoneNumberExists);
-
-          setToken(profile.getAuthResponse().id_token);
-          setGoogleId(profile.getId());
-
-          if (serverRes.data.phoneNumberExists === true) {
-            history.push("/patient");
-          } else {
-            history.push("/patient/update-phone");
-          }
-        }
-        else {
-          const err = {err : "Server Didn't respond"}
-          throw err;
-        }
-      }
-    } catch (err) {
-      console.log(`[Google] Some error occurred while signing in! ${err}`);
-    }
-  }
 
   function signOutGoogle() {
     // Different logic for doctor and patient
@@ -105,12 +62,9 @@ const Navbar = () => {
           <li className="navbar-item" style={{ textAlign: "right" }}>
             <link to="/" className="nav-link " style={{ padding: 0 }} />
             {!token && (
-              <button
-                onClick={loginWithGoogle}
-                className="btn btn-outline-primary"
-              >
-                Login As A Patient
-              </button>
+              <div className="card-body" style={{padding: 2}}>
+                <Link to='doctorsignup' className="btn btn-primary justify-content-center w-100">Doctor SignUp</Link>
+              </div>
             )}
             {token && (
               <button

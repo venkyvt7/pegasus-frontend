@@ -28,7 +28,9 @@
     "react-stripe-checkout": "^2.6.3",
     "react-toastify": "^7.0.3",
     "reactstrap": "^8.9.0",
+    "simple-peer": "^9.11.1",
     "socket.io-client": "^2.3.0",
+    "styled-components": "^5.3.5",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
